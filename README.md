@@ -116,7 +116,3 @@ docker-compose up -d
 Acesse a documentação Swagger para testar todos os endpoints:
 [http://localhost:3000/api-docs/](http://localhost:3000/api-docs/)
 
-## 📝 Licença
-
-Este projeto está sob a licença ISC.
-
