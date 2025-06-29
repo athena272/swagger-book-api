@@ -1,4 +1,4 @@
-# �� swagger-book-api
+# 📚 swagger-book-api
 
 Esta é uma API RESTful desenvolvida para facilitar o gerenciamento de uma coleção de livros, permitindo operações de cadastro, consulta, atualização e remoção de livros em um banco de dados MongoDB. O projeto foi construído com Node.js, Express e TypeScript, e oferece autenticação segura via JWT, além de uma documentação interativa utilizando Swagger. Ideal para quem deseja um ponto de partida para sistemas de biblioteca, catálogos digitais ou estudos sobre integração de autenticação e documentação em APIs modernas.
 
