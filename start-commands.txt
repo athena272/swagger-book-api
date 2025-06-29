@@ -5,3 +5,5 @@ npm install @types/swagger-ui-express --save-dev
 docker-compose up -d
 
 http://localhost:3000/api-docs/
+
+npm install @types/swagger-jsdoc --save-dev
