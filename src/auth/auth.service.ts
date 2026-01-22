@@ -1,9 +1,6 @@
 import jwt from "jsonwebtoken";
 import { userService } from "../user/user.service";
-import dotenv from "dotenv";
 import bcrypt from "bcrypt";
-
-dotenv.config();
 
 const JWT_SECRET = process.env.JWT_SECRET;
 console.log("🚀 ~ JWT_SECRET:", JWT_SECRET)
