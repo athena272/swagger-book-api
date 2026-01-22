@@ -19,9 +19,9 @@ Esta é uma API RESTful desenvolvida para facilitar o gerenciamento de uma cole�
 ```bash
 npm install
 ```
-3. Suba o MongoDB com Docker:
+3. Suba o MongoDB com Docker (Necessário estar com o Docker em execução):
 ```bash
-docker-compose up -d
+npm run db
 ```
 4. Inicie a aplicação:
 ```bash
