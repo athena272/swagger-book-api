@@ -20,11 +20,13 @@ Esta é uma API RESTful desenvolvida para facilitar o gerenciamento de uma cole�
 npm install
 ```
 3. Configure as variáveis de ambiente:
-   - Copie o arquivo `.env.example` para `.env`:
+
+Copie o arquivo `.env.example` para `.env`:
    ```bash
    copy .env.example .env
    ```
-   - Edite o arquivo `.env` e defina uma chave secreta para o JWT:
+
+Edite o arquivo `.env` e defina uma chave secreta para o JWT:
    ```
    JWT_SECRET=sua-chave-secreta-aqui
    ```
