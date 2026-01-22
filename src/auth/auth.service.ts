@@ -6,9 +6,14 @@ import bcrypt from "bcrypt";
 dotenv.config();
 
 const JWT_SECRET = process.env.JWT_SECRET;
+console.log("🚀 ~ JWT_SECRET:", JWT_SECRET)
 
 export class AuthService {
   async login(username: string, password: string) {
+    if (!JWT_SECRET) {
+      throw new Error("JWT_SECRET is not configured");
+    }
+
     try {
       const user = await userService.findUserByUsername(username);
 
@@ -18,14 +23,17 @@ export class AuthService {
 
       const token = jwt.sign(
         { id: user._id, username: user.username },
-        JWT_SECRET as string,
+        JWT_SECRET,
         {
           expiresIn: "1h",
         }
       );
       return { token };
-    } catch (error) {
-      throw new Error(`Internal server error: ${error}`);
+    } catch (error: any) {
+      if (error.message === "Invalid username or password") {
+        throw error;
+      }
+      throw new Error(`Internal server error: ${error.message || error}`);
     }
   }
 }
