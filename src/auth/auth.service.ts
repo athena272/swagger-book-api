@@ -3,7 +3,6 @@ import { userService } from "../user/user.service";
 import bcrypt from "bcrypt";
 
 const JWT_SECRET = process.env.JWT_SECRET;
-console.log("🚀 ~ JWT_SECRET:", JWT_SECRET)
 
 export class AuthService {
   async login(username: string, password: string) {
