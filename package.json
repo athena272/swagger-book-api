@@ -5,7 +5,9 @@
   "main": "index.js",
   "scripts": {
     "start": "nodemon ./src/main.ts",
-    "db": "docker-compose up -d"
+    "db": "docker-compose up -d",
+    "check-env": "node fix-env-encoding.js",
+    "fix-env": "node fix-env-encoding.js --fix"
   },
   "keywords": [],
   "author": "",
