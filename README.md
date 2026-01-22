@@ -19,15 +19,25 @@ Esta é uma API RESTful desenvolvida para facilitar o gerenciamento de uma cole�
 ```bash
 npm install
 ```
-3. Suba o MongoDB com Docker (Necessário estar com o Docker em execução):
+3. Configure as variáveis de ambiente:
+   - Copie o arquivo `.env.example` para `.env`:
+   ```bash
+   copy .env.example .env
+   ```
+   - Edite o arquivo `.env` e defina uma chave secreta para o JWT:
+   ```
+   JWT_SECRET=sua-chave-secreta-aqui
+   ```
+   **Importante**: Use uma chave secreta forte e segura em produção. A autenticação JWT não funcionará sem esta variável configurada.
+4. Suba o MongoDB com Docker (Necessário estar com o Docker em execução):
 ```bash
 npm run db
 ```
-4. Inicie a aplicação:
+5. Inicie a aplicação:
 ```bash
 npm start
 ```
-5. Acesse a documentação Swagger:
+6. Acesse a documentação Swagger:
 
 [http://localhost:3000/api-docs/](http://localhost:3000/api-docs/)
 
