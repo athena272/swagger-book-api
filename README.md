@@ -28,7 +28,11 @@ npm install
    ```
    JWT_SECRET=sua-chave-secreta-aqui
    ```
-   **Importante**: Use uma chave secreta forte e segura em produção. A autenticação JWT não funcionará sem esta variável configurada.
+   **Importante**: 
+   - Use uma chave secreta forte e segura em produção. A autenticação JWT não funcionará sem esta variável configurada.
+   - O arquivo `.env` **deve estar em UTF-8**. Se você criar/editá-lo no Windows, certifique-se de salvar como UTF-8 (não Unicode/UTF-16).
+   - Para verificar se o encoding está correto, execute: `npm run check-env`
+   - Se houver problema de encoding, execute: `npm run fix-env`
 4. Suba o MongoDB com Docker (Necessário estar com o Docker em execução):
 ```bash
 npm run db
@@ -126,3 +130,25 @@ docker-compose up -d
 Acesse a documentação Swagger para testar todos os endpoints:
 [http://localhost:3000/api-docs/](http://localhost:3000/api-docs/)
 
+## 🔧 Scripts Disponíveis
+
+- `npm start` - Inicia o servidor em modo desenvolvimento com nodemon
+- `npm run db` - Sobe o MongoDB usando Docker Compose
+- `npm run check-env` - Verifica se o arquivo `.env` está em UTF-8 e se as variáveis estão sendo carregadas corretamente
+- `npm run fix-env` - Corrige automaticamente problemas de encoding no arquivo `.env` (converte UTF-16 para UTF-8)
+
+## ⚠️ Troubleshooting
+
+### Problema: `JWT_SECRET` retorna `undefined`
+
+**Causa comum:** O arquivo `.env` está em UTF-16 (Unicode) em vez de UTF-8.
+
+**Solução:**
+1. Execute `npm run check-env` para verificar o problema
+2. Execute `npm run fix-env` para corrigir automaticamente
+3. Ou converta manualmente:
+   - **VS Code:** Abra o arquivo, clique no encoding (canto inferior direito) → "Save with Encoding" → "UTF-8"
+   - **Notepad++:** Encoding → Convert to UTF-8
+   - **Node.js:** `node -e "const fs=require('fs');fs.writeFileSync('.env',fs.readFileSync('.env','utf16le'),'utf8')"`
+
+**Prevenção:** Sempre salve arquivos `.env` em UTF-8. O VS Code mostra o encoding atual no canto inferior direito da janela.
